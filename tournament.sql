@@ -55,7 +55,8 @@ GROUP BY player;
 
 -- Shows a table with player id, player name, matches won, matches played
 CREATE VIEW WIN_VIEW AS
-SELECT players.id, players.player_name, coalesce(WIN_BY_PLAYER_VIEW.win_count,0) as wins, coalesce(COUNT_MATCHES_VIEW.total,0) as no_matches FROM players
+SELECT players.id, players.player_name, coalesce(WIN_BY_PLAYER_VIEW.win_count,0) 
+AS wins, coalesce(COUNT_MATCHES_VIEW.total,0) AS no_matches FROM players
 LEFT JOIN WIN_BY_PLAYER_VIEW
 ON WIN_BY_PLAYER_VIEW.winner = players.id
 LEFT JOIN COUNT_MATCHES_VIEW
